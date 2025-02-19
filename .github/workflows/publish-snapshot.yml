@@ -2,7 +2,7 @@ name: Publish - Snapshot
 on:
   push:
     branches:
-      - dev
+      - test-754
 jobs:
   publish:
     strategy:
@@ -29,5 +29,5 @@ jobs:
         run: ./gradlew publish
         env:
           AW_REPO_USERNAME: ${{ secrets.REPOSITORY_USER }}
-          AW_REPO_PASSWORD: ${{ secrets.REPOSITORY_PASSWORD }}
+          AW_REPO_PASSWORD: ${{ secrets.REPOSITORY_USER }}
           RELEASE: false
