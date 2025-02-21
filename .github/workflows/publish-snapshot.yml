@@ -25,20 +25,7 @@ jobs:
         run: chmod +x ./gradlew
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
-      - name: Publish to GitHub Packages
-        run: gradle publish
+      - name: Publish package
+        run: ./gradlew publish
         env:
-          USERNAME: ${{ github.actor }}
-          PASSWORD: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Publish artifact
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      #   # The GITHUB_REF tag comes in the format 'refs/tags/xxx'.
-      #   # If we split on '/' and take the 3rd value,
-      #   # we can get the release name.
-      #   run: |
-      #     NEW_VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
-      #     echo "New version: ${NEW_VERSION}"
-      #     echo "Github username: ${GITHUB_ACTOR}"
-      #     ./gradlew -Pversion=${NEW_VERSION} publish
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
