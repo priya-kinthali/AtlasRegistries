@@ -31,7 +31,9 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
       
       - name: Publish package
-        run: gradle publish
+        run: |
+          gradle publish
+          ./gradlew publish --info
         env:
           # USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
