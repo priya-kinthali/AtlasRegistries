@@ -33,7 +33,8 @@ jobs:
       - name: Publish package
         run: |
           gradle publish
-          ./gradlew publish --info
+          # ./gradlew publish --info
+          ./gradlew publish --stacktrace
         env:
           # USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
